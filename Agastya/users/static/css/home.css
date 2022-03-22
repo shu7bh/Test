@@ -84,20 +84,13 @@ a:link {
     border-radius: 0% !important;
 }
 
-.options a {
-    text-decoration: none;
-    background: #227feb;
-    color: rgb(92, 22, 22);
-    font-size: 18px;
-}
-
 .switch-toggle {
     min-width: 10em;
-    max-width: 20em;
+    max-width: 18em;
 }
 
 .switch-ios.switch-toggle {
-    background-color: rgb(187, 187, 181) !important;
+    background-color: rgb(187, 187, 181, 0.5) !important;
 }
 
 .switch-toggle label:not(.disabled) {
@@ -110,5 +103,11 @@ a:link {
 }
 
 .switch-ios.switch-toggle label {
-    color: rgb(51, 46, 46) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.switch-ios.switch-toggle a {
+    background-color: #7c73ff !important;
+    margin: 0;
+    border: 0.12em solid rgb(187, 187, 181) !important;
 }
