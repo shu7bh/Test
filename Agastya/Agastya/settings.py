@@ -12,11 +12,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_DIR = os.path.dirname(__file__)
 
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -42,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'users',
     'widget_tweaks',
-    'django_email_verification',
 ]
 
 SITE_ID = 1
@@ -133,24 +135,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
-# Email Verification
-EMAIL_ACTIVE_FIELD = 'is_active'
-EMAIL_VERIFICATION_DAYS = 7
-EMAIL_VERIFICATION_URL = 'verify-email'
-EMAIL_SERVER = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_ADDRESS = 'noreply.agastya@gmail.com'
-EMAIL_PASSWORD = 'agastya123'
-EMAIL_FROM_NAME = 'Agastya'
-EMAIL_MAIL_SUBJECT = 'Email Verification'
-EMAIL_VERIFICATION_MESSAGE = '''
-Hi {name},
-To confirm your email address, please click on the link below:
-{verification_url}
-'''
-EMAIL_PAGE_DOMAIN = 'http://localhost:8000'
-EMAIL_PAGE_TEMPLATE = 'confirmTemplate.html'
-EMAIL_MAIL_HTML = 'mailBody.html'
-EMAIL_MAIL_PLAIN = 'mailBody.txt'
-EMAIL_TOKEN_LIFE = 60*60
